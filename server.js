@@ -8,7 +8,7 @@ require('dotenv').config();
 const app = express();
 
 // Get the directory path from the environment variable or use the default path
-const buildWebGLDir = process.env.BUILD_WEBGL_DIR || path.join(__dirname, 'Build-WebGL');
+const buildWebGLDir = process.env.BUILD_WEBGL_DIR || path.join(__dirname, 'Build-WebGL/WebGL');
 
 // Middleware to set the correct content-encoding headers
 app.use((req, res, next) => {
@@ -25,6 +25,7 @@ app.use((req, res, next) => {
 // Serve static files from the 'Build' directory
 app.use('/Build', express.static(path.join(buildWebGLDir, 'Build')));
 app.use('/TemplateData', express.static(path.join(buildWebGLDir, 'TemplateData')));
+
 
 // Fallback for serving index.html for single-page applications
 app.get('*', (req, res) => {
