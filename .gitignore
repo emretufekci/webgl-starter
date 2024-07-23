@@ -55,3 +55,4 @@ pnpm-lock.yaml
 
 # ENV
 .env
+.vercel
